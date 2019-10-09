@@ -37,7 +37,7 @@ bookmarkRouter
   .post(bodyParser, (req, res) => {
     // move implementation logic into here
     console.log(req);
-    const { title, content = [] } = req.body;
+    const { id, title, content = [] } = req.body;
 
     if (!title) {
       logger.error(`Title is Required`);
@@ -47,7 +47,6 @@ bookmarkRouter
       logger.error(`Content is Required`);
       return res.status(400).send("Invalid data");
     }
-    const id = uuid();
 
     const bookmark = {
       id,
@@ -74,7 +73,7 @@ bookmarkRouter
     if (!bookmark) {
       return res.status(404).send("Bookmark not found");
     }
-    res.json(bookmarks);
+    res.json(bookmark);
   })
   .delete((req, res) => {
     // move implementation logic into here

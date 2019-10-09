@@ -7,7 +7,7 @@ const { NODE_ENV } = require("./config");
 const winston = require("winston");
 const app = express();
 
-const bookmarkRouter = require("./card/card-router");
+const bookmarkRouter = require("./bookmarks/bookmarks-router");
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
 app.use(morgan(morganOption));
